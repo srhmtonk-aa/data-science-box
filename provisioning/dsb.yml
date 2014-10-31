@@ -279,21 +279,22 @@
       shell: chdir=/home/vagrant/repos/py-phash python setup.py install
 
     # INSTALLING Conda iopro 
-
-    - name: Download miniconda
-      get_url: url=http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh dest=/tmp/miniconda.sh mode=0755
-    - name: Install miniconda 
-      shell: /tmp/miniconda.sh -b -p /home/vagrant/.miniconda creates=/home/vagrant/.miniconda
-    - name: Install IOPro 
-      shell: /home/vagrant/.miniconda/bin/conda install --yes --no-deps -p /usr/local -q iopro
+    
+    #  miniconda and explicit IOPro products are not used
+    # - name: Download miniconda
+    #   get_url: url=http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh dest=/tmp/miniconda.sh mode=0755
+    # - name: Install miniconda 
+    #   shell: /tmp/miniconda.sh -b -p /home/vagrant/.miniconda creates=/home/vagrant/.miniconda
+    # - name: Install IOPro 
+    #   shell: /home/vagrant/.miniconda/bin/conda install --yes --no-deps -p /usr/local -q iopro
     # - name: Install Accelerate 
     #   shell: /home/vagrant/.miniconda/bin/conda install --yes -p /usr/local -q accelerate
     # - name: Remove numpy install
-      # shell: rm -rf /usr/local/lib/python2.7/site-packages/numpy*info
-      # shell: rm -rf /usr/local/lib/python2.7/site-packages/numpy
-    - name: Move from site-packages to dist-packages
-      shell: cp -rf /usr/local/lib/python2.7/site-packages/* /usr/local/lib/python2.7/dist-packages/
-      shell: rm -rf /usr/local/lib/python2.7/site-packages/* 
+    #   shell: rm -rf /usr/local/lib/python2.7/site-packages/numpy*info
+    #   shell: rm -rf /usr/local/lib/python2.7/site-packages/numpy
+    # - name: Move from site-packages to dist-packages
+    #   shell: cp -rf /usr/local/lib/python2.7/site-packages/* /usr/local/lib/python2.7/dist-packages/
+    #   shell: rm -rf /usr/local/lib/python2.7/site-packages/* 
 
     # INSTALLING Julia
 
