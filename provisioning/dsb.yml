@@ -96,7 +96,8 @@
         - vim #text editor
         - mercurial #scm
         - libreadline-dev #rpy2
-
+        - libz-dev #Vowpal Wabbit
+        - libboost-program-options-dev #Vowpal Wabbit
     # INSTALLING PostgreSQL
 
     # Needed for add-apt-repository
@@ -338,6 +339,13 @@
     - name: Installing nbviewer depndencies
       shell: chdir=/home/vagrant/.nbviewer pip install -r requirements.txt  
 
+    # INSTALLING Vowpal Wabbit
+
+    - name: Getting Vowpal Wabbit repo
+      git: repo=https://github.com/JohnLangford/vowpal_wabbit.git dest=/home/vagrant/repos/vowpal_wabbit/
+    - name: Install Vowpal Wabbit
+      shell: chdir=/home/vagrant/repos/vowpal_wabbit/ ./configure; make; make install; ldconfig
+      
     # INSTALLING DSATCL
     
     - name: Get Data Science at the Command Line tools, data, and scripts
